@@ -1,0 +1,12 @@
+# Rules for all web crawlers
+User-agent: *
+Disallow: /private/         # Do not crawl this directory
+Disallow: /secret.html      # Do not crawl this specific page
+
+# Rules for Googlebot
+User-agent: Googlebot
+Allow: /public/            # Allow crawling of this directory
+Disallow: /no-google/      # Do not crawl this directory
+
+# Sitemap location
+Sitemap: https://yourwebsite.com/sitemap.xml
