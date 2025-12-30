@@ -67,68 +67,190 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    <link rel="stylesheet" href="index.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in {
+        animation: fadeIn 0.3s ease-out;
+      }
+    </style>
   </head>
-  <body>
-    <div class="container">
-      <div class="ad-banner-top">
-        <p>&nbsp;</p>
-      </div>
+  <body
+    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen flex flex-col"
+  >
+    <!-- Main Container -->
+    <div class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+      <div class="w-full max-w-md">
+        <!-- Ad Banner Top -->
+        <!-- <div class="mb-6">
+          <div
+            class="bg-gray-100 rounded-lg h-20 flex items-center justify-center text-gray-400 text-sm"
+          >
+            Advertisement Space
+          </div>
+        </div> -->
 
-      <h1 class="password-gen-title">Password Generator</h1>
+        <!-- Main Card -->
+        <div
+          class="bg-white rounded-2xl shadow-2xl p-8 space-y-6 border border-gray-100"
+        >
+          <!-- Title -->
+          <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">
+            Password Generator
+          </h1>
 
-      <div class="main-section">
-        <p id="feedback-text"></p>
-        <input type="number" id="password-length" min="4" max="50" value="10" />
-        <button id="click-button">
-          Generate
-          <span class="material-symbols-outlined" style="font-size: small">
-            polyline
-          </span>
-        </button>
-        <button id="copy-button">
-          Copy
-          <span class="material-symbols-outlined" style="font-size: small">
-            content_copy
-          </span>
-        </button>
-      </div>
+          <!-- Password Display -->
+          <div
+            class="bg-gray-50 rounded-lg p-4 border-2 border-gray-200 min-h-[60px] flex items-center justify-center"
+          >
+            <p
+              id="password-placeholder"
+              class="text-gray-400 text-sm text-center"
+            >
+              This is a client-side password generator. Generated passwords are
+              not recorded, tracked, or backed up anywhere outside your own
+              device
+            </p>
+          </div>
 
-      <div class="options">
-        <div class="option">
-          <input type="checkbox" id="numbers-checkbox" /> Numbers
+          <!-- Feedback Text -->
+          <p id="feedback-text" class="text-center text-sm font-medium h-5"></p>
+
+          <!-- Password Length Input -->
+          <div class="space-y-2">
+            <label
+              for="password-length"
+              class="block text-sm font-medium text-gray-700"
+            >
+              Password Length (4-50)
+            </label>
+            <input
+              type="number"
+              id="password-length"
+              min="4"
+              max="50"
+              value="10"
+              class="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+            />
+          </div>
+
+          <!-- Options Checkboxes -->
+          <div class="space-y-3">
+            <p class="text-sm font-medium text-gray-700 mb-3">Include:</p>
+
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                id="numbers-checkbox"
+                class="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              />
+              <span
+                class="text-gray-700 group-hover:text-indigo-600 transition-colors"
+                >Numbers (0-9)</span
+              >
+            </label>
+
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                id="symbols-checkbox"
+                class="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              />
+              <span
+                class="text-gray-700 group-hover:text-indigo-600 transition-colors"
+                >Symbols (!@#$%)</span
+              >
+            </label>
+
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                id="upcase-letters-checkbox"
+                class="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              />
+              <span
+                class="text-gray-700 group-hover:text-indigo-600 transition-colors"
+                >Uppercase (A-Z)</span
+              >
+            </label>
+
+            <label class="flex items-center space-x-3 cursor-pointer group">
+              <input
+                type="checkbox"
+                id="lcase-letters-checkbox"
+                class="w-5 h-5 text-indigo-600 border-gray-300 rounded focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+              />
+              <span
+                class="text-gray-700 group-hover:text-indigo-600 transition-colors"
+                >Lowercase (a-z)</span
+              >
+            </label>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex gap-3 pt-4">
+            <button
+              id="click-button"
+              class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              Generate
+              <span class="material-symbols-outlined text-base">
+                polyline
+              </span>
+            </button>
+
+            <button
+              id="copy-button"
+              class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+            >
+              Copy
+              <span class="material-symbols-outlined text-base">
+                content_copy
+              </span>
+            </button>
+          </div>
         </div>
-        <div class="option">
-          <input type="checkbox" id="symbols-checkbox" /> Symbols
-        </div>
-        <div class="option">
-          <input type="checkbox" id="upcase-letters-checkbox" /> Uppercase
-        </div>
-        <div class="option">
-          <input type="checkbox" id="lcase-letters-checkbox" /> Lowercase
-        </div>
-      </div>
 
-      <p id="password-placeholder">Your data is never stored in our servers</p>
-
-      <div class="advertisement-section">
-        <!-- Space for advertisements -->
-        <p>&nbsp;</p>
+        <!-- Advertisement Section -->
+        <!-- <div class="mt-6">
+          <div
+            class="bg-gray-100 rounded-lg h-24 flex items-center justify-center text-gray-400 text-sm"
+          >
+            Advertisement Space
+          </div>
+        </div> -->
       </div>
     </div>
 
-    <!-- Disclaimer Section -->
-    <div class="disclaimer">
-      <p>
-        &copy; 2024 This is an open-sourced client-side password generator. Your
-        passwords are neither stored nor shared. Please check the
-        <a href="https://github.com/iam-jmismail/keypassxd.netlify.app" target="_blank">Github Code</a>
-      </p>
-    </div>
-
-    <!-- <div class="sidebar-ad">
-      <p>Advertisement</p>
-    </div> -->
+    <!-- Disclaimer Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-4 px-4 mt-auto">
+      <div class="max-w-4xl mx-auto text-center text-sm">
+        <p>
+          © 2024 Open-source client-side password generator.
+          <a
+            href="https://github.com/iam-jmismail/keypassxd.netlify.app"
+            target="_blank"
+            class="text-indigo-400 hover:text-indigo-300 underline"
+            >View Source</a
+          >
+        </p>
+      </div>
+    </footer>
 
     <script src="./index.js"></script>
 
