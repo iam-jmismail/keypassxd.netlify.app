@@ -91,10 +91,10 @@
     </style>
   </head>
   <body
-    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen flex flex-col"
+    class="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 min-h-screen flex flex-col overflow-x-hidden"
   >
     <!-- Main Container -->
-    <div class="flex-grow flex items-center justify-center p-4 sm:p-6 lg:p-8">
+    <div class="flex-grow flex items-center justify-center p-3 sm:p-6 lg:p-8">
       <div class="w-full max-w-md">
         <!-- Ad Banner Top -->
         <!-- <div class="mb-6">
@@ -107,20 +107,20 @@
 
         <!-- Main Card -->
         <div
-          class="bg-white rounded-2xl shadow-2xl p-8 space-y-6 border border-gray-100"
+          class="bg-white rounded-2xl shadow-2xl p-5 sm:p-8 space-y-5 sm:space-y-6 border border-gray-100"
         >
           <!-- Title -->
-          <h1 class="text-3xl font-bold text-center text-gray-800 mb-2">
+          <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-800 mb-2">
             Password Generator
           </h1>
 
           <!-- Password Display -->
           <div
-            class="bg-gray-50 rounded-lg p-4 border-2 border-gray-200 min-h-[60px] flex items-center justify-center"
+            class="bg-gray-50 rounded-lg p-4 border-2 border-gray-200 min-h-[60px] flex items-center justify-center break-words"
           >
             <p
               id="password-placeholder"
-              class="text-gray-400 text-sm text-center"
+              class="text-gray-400 text-sm text-center break-words"
             >
               This is a client-side password generator. Generated passwords are
               not recorded, tracked, or backed up anywhere outside your own
@@ -203,10 +203,10 @@
           </div>
 
           <!-- Action Buttons -->
-          <div class="flex gap-3 pt-4">
+          <div class="flex flex-col sm:flex-row gap-3 pt-4">
             <button
               id="click-button"
-              class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+              class="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 sm:px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
             >
               Generate
               <span class="material-symbols-outlined text-base">
@@ -216,7 +216,7 @@
 
             <button
               id="copy-button"
-              class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
+              class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-4 sm:px-6 rounded-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
             >
               Copy
               <span class="material-symbols-outlined text-base">
